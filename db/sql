@@ -1,0 +1,16 @@
+-- ----------------------------
+-- Table structure for `tb_user`
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_user`;
+CREATE TABLE `tb_user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) COLLATE utf8_bin DEFAULT NULL,
+  `age` int(8) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of tb_user
+-- ----------------------------
+INSERT INTO `tb_user` VALUES ('1', 'zzl', null);
+INSERT INTO `tb_user` VALUES ('2', 'ccc', null);
