@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:util="http://www.springframework.org/schema/util" xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:jee="http://www.springframework.org/schema/jee"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:task="http://www.springframework.org/schema/task"
+    xmlns:cache="http://www.springframework.org/schema/cache"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+        http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.0.xsd
+        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.0.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd 
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd 
+        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.0.xsd
+        http://www.springframework.org/schema/cache
+        http://www.springframework.org/schema/cache/spring-cache.xsd">
+
+    <description>Spring公共配置</description>
+    <!--
+        spring可以自动去扫描base-package下面或者子包下面的java文件，
+        如果扫描到有@Component @Controller @Service @Repository等这些注解的类，则把这些类注册为bean
+    -->
+    <context:component-scan base-package="com.woods.example.controller" />
+
+    <context:property-placeholder location="classpath*:/config.properties" ignore-resource-not-found="true" ignore-unresolvable="true" />
+
+    <!-- 线程池 -->
+    <bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+        <property name="corePoolSize" value="6" />
+        <property name="maxPoolSize" value="6" />
+        <property name="queueCapacity" value="6" />
+        <property name="keepAliveSeconds" value="6" />
+    </bean>
+
+    <import resource="classpath*:spring-context-service.xml" />
+
+</beans>
