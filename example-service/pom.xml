@@ -28,11 +28,25 @@
     <url>http://maven.apache.org</url>
 
     <dependencies>
+
+        <dependency>
+            <groupId>com.woods.example</groupId>
+            <artifactId>example-common</artifactId>
+            <version>1.0</version>
+        </dependency>
+
         <dependency>
             <groupId>com.woods.example</groupId>
             <artifactId>example-dao</artifactId>
             <version>1.0</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>4.1.2</version>
+        </dependency>
+
     </dependencies>
 
 </project>

@@ -1,4 +1,4 @@
-package com.woods.example.tools;
+package com.woods.example.test.tools;
 
 import org.junit.Test;
 

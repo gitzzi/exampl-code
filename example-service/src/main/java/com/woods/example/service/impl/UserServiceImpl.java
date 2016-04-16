@@ -1,12 +1,12 @@
 package com.woods.example.service.impl;
 
 import com.woods.example.dao.IUserDao;
-import com.woods.example.model.User;
 import com.woods.example.service.IUserService;
+import com.woods.example.model.User;
+import com.woods.example.common.utils.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -20,8 +20,20 @@ public class UserServiceImpl implements IUserService {
     private IUserDao userDao;
 
     @Override
+    public PageHelper.Page<User> findByPage(User user, int pageNumber, int pageSize) {
+        PageHelper.startPage(pageNumber, pageSize);
+        userDao.selectByPage(user);
+        return PageHelper.endPage();
+    }
+
+    @Override
     public List<User> findUserAll() {
         return userDao.selectAll();
+    }
+
+    @Override
+    public List<User> getByUser(User user) {
+        return userDao.selectByUser(user);
     }
 
     @Override

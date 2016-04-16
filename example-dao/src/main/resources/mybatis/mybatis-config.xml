@@ -13,10 +13,13 @@
      <package name="com.dy.entity"/>
       -->
 	<typeAliases>
-		<!--<typeAlias type="com.woods.example.model.User" alias="User" />-->
+		<!--<typeAlias type="User" alias="User" />-->
 		<package name="com.woods.example.model" />
 	</typeAliases>
-
+	
+	<plugins>
+		<plugin interceptor="PageHelper"></plugin>
+	</plugins>
 
 
 </configuration>

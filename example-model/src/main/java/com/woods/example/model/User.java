@@ -1,7 +1,13 @@
 package com.woods.example.model;
 
+import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.commons.lang.builder.ToStringStyle;
+
 import java.io.Serializable;
 
+/**
+ * 用户表
+ */
 public class User implements Serializable {
 
     private Integer id;
@@ -45,7 +51,8 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        System.out.println("User [id=" + id + ", name=" + name + ", age=" + age + "]");
-        return "User [id=" + id + ", name=" + name + ", age=" + age + "]";
+//        System.out.println("User [id=" + id + ", name=" + name + ", age=" + age + "]");
+//        return "User [id=" + id + ", name=" + name + ", age=" + age + "]";
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE );
     }
 }
