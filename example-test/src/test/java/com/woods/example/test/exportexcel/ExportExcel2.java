@@ -65,12 +65,13 @@ public class ExportExcel2 {
 
                     cell=row.createCell(k + y);
                     cell.setCellStyle(contentStyle);
-
+                    sheet.autoSizeColumn(k+y);
                     if(map.get(valueFields[k]) instanceof List){
                         for (y = 0; y < subValueFields.length; y++){
 
                             cell=row.createCell(k+y);
                             cell.setCellStyle(contentStyle);
+                            sheet.autoSizeColumn(k+y);
                             Object cellVale = m.get(subValueFields[y]);
                             if(null != cellVale && StringUtils.isNotEmpty(cellVale.toString())){
                                 cell.setCellValue(Double.valueOf(cellVale.toString()));
