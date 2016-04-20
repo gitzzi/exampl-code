@@ -83,7 +83,7 @@ public class TestExport2 {
 
 
         Map<String, Object> map1 = new HashMap<String, Object>();
-        map1.put("date1","4.7");
+        map1.put("date1","4.71111111");
         map1.put("amount","86692605.42");
         map1.put("count","25644");
         map1.put("kj","");

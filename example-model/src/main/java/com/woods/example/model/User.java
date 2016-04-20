@@ -1,9 +1,11 @@
 package com.woods.example.model;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * 用户表
@@ -15,6 +17,8 @@ public class User implements Serializable {
     private String name;
 
     private Integer age;
+
+    private String[] names;
 
     public User() {
     }
@@ -48,6 +52,13 @@ public class User implements Serializable {
         this.age = age;
     }
 
+    public String[] getNames() {
+        return names;
+    }
+
+    public void setNames(String[] names) {
+        this.names = names;
+    }
 
     @Override
     public String toString() {

@@ -43,12 +43,18 @@
     <if test="id != null">
       AND id=#{id}
     </if>
-    <!--<if test="name != null">-->
-      <!--AND NAME LIKE '%#{name}%'-->
-    <!--</if>-->
+
     <if test="name != null">
-      AND NAME LIKE '%${name}%'
+      AND NAME LIKE '%#{name}%'
     </if>
+
+    <if test="names != null and names != ''">
+      <![CDATA[AND NAME in ( #{names}) ]]>
+      <foreach collection="names" item="n" index="index" open="(" separator="," close=")">
+        #{n}
+      </foreach>
+    </if>
+
     </select>
 
     <select id="selectAll" resultMap="BaseResultMap" >

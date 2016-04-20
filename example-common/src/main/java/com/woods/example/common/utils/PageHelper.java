@@ -145,8 +145,13 @@ public class PageHelper implements Interceptor {
         ResultSet rs = null;
         try {
             countStmt = connection.prepareStatement(countSql);
+
             BoundSql countBS = new BoundSql(mappedStatement.getConfiguration(), countSql,
                     boundSql.getParameterMappings(), boundSql.getParameterObject());
+            //需要将metaParameters赋值过去..
+            MetaObject countBsObject = SystemMetaObject.forObject(countBS);
+            MetaObject boundSqlObject = SystemMetaObject.forObject(boundSql);
+            countBsObject.setValue("metaParameters",boundSqlObject.getValue("metaParameters"));
             setParameters(countStmt, mappedStatement, countBS, boundSql.getParameterObject());
             rs = countStmt.executeQuery();
             int totalCount = 0;
@@ -265,7 +270,7 @@ public class PageHelper implements Interceptor {
 
         @Override
         public String toString() {
-            return "Page{" +
+            return "Page2{" +
                     "pageNum=" + pageNum +
                     ", pageSize=" + pageSize +
                     ", startRow=" + startRow +

@@ -1,8 +1,8 @@
 package com.woods.example.service;
 
 
+import com.woods.example.common.utils.PageHelper.*;
 import com.woods.example.model.User;
-import com.woods.example.common.utils.PageHelper;
 
 import java.util.List;
 
@@ -11,11 +11,13 @@ import java.util.List;
  */
 public interface IUserService {
 
-    PageHelper.Page<User> findByPage(User user, int pageNumber, int pageSize);
+    Page<User> findByPage(User user, int pageNumber, int pageSize);
 
     List<User> findUserAll();
 
     List<User> getByUser(User user);
+
+    List<User> findByUser(User user);
 
     /**
      * 根据用户id查找
