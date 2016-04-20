@@ -1,12 +1,13 @@
 package com.woods.example.controller;
 
+import com.woods.example.common.utils.PageHelper;
 import com.woods.example.model.User;
 import com.woods.example.service.IUserService;
-import com.woods.example.common.utils.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -35,12 +36,27 @@ public class IndexController {
 
 	@RequestMapping( value = "findPage")
 	public String findPage(){
-		User user = new User();
-		user.setName("2");
+
 		int pageNumber = 1;
 		int pageSize = 2;
+
+		List<String> ns = new ArrayList<String>();
+		ns.add("2");
+		ns.add("5");
+
+		User user = new User();
+		user.setNames(new String[]{"2","5"});
+		user.setNs(ns);
+
+		List<User> us = userService.findByUser(user);
+		for (User u : us){
+			System.out.println(u.toString() + "---------");
+		}
+		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 		PageHelper.Page<User> page = userService.findByPage(user, pageNumber, pageSize);
-		System.out.println(page.getResult().size());
+		for (User u : page.getResult()){
+			System.out.println(u.toString() + "============");
+		}
 		System.out.println(page.toString());
 		return "index";
 
