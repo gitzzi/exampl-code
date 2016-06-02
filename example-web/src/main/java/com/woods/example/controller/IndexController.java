@@ -5,6 +5,8 @@ import com.woods.example.model.User;
 import com.woods.example.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
@@ -27,9 +29,10 @@ public class IndexController {
 
 
 	@RequestMapping( value = "finduser")
-	public String findUserByid(){
+	public String findUserByid(ModelMap map){
 		User user = userService.findUserById(1);
 		System.out.println(user.getName());
+		map.put("user", user);
 		return "index";
 
 	}
@@ -46,7 +49,6 @@ public class IndexController {
 
 		User user = new User();
 		user.setNames(new String[]{"2","5"});
-		user.setNs(ns);
 
 		List<User> us = userService.findByUser(user);
 		for (User u : us){
