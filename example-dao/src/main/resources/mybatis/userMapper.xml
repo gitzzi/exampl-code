@@ -30,7 +30,9 @@
     FROM <include refid="TB_USER" />
     <where>
       <if test="name != null">
-        NAME LIKE '%${name}%'
+        <!-- NAME LIKE CONCAT('%',CONCAT(#{name}),'%') -->
+        NAME  LIKE  '%'||#{name}||'%'
+        <!--NAME LIKE '%${name}%'-->
       </if>
     </where>
   </select>
