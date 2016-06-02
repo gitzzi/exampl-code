@@ -25,3 +25,6 @@ example-test 测试模块
     
     关于poi导出excel
         com.woods.example.test.exportexcel
+
+    关于jackrabbit
+        com.woods.example.test.other.jackrabbit
