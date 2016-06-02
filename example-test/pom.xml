@@ -9,31 +9,47 @@
   </parent>
 
   <artifactId>example-test</artifactId>
-  <packaging>jar</packaging>
-  <version>1.0</version>
 
   <name>exmaple-test</name>
   <url>http://maven.apache.org</url>
 
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.12</version>
-      <scope>test</scope>
-    </dependency>
 
     <dependency>
       <groupId>com.woods.example</groupId>
       <artifactId>example-service</artifactId>
-      <version>1.0</version>
     </dependency>
 
     <dependency>
-      <groupId>com.woods.example</groupId>
-      <artifactId>example-web</artifactId>
-      <version>1.0</version>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi</artifactId>
     </dependency>
+
+    <dependency>
+      <groupId>org.apache.jackrabbit</groupId>
+      <artifactId>jackrabbit-core</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.jcr</groupId>
+      <artifactId>jcr</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+    </dependency>
+
+    <!--    <dependency>
+          <groupId>com.woods.example</groupId>
+          <artifactId>example-web</artifactId>
+        </dependency>-->
+
 
   </dependencies>
 

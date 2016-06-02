@@ -19,7 +19,11 @@
     <dependency>
       <groupId>com.woods.example</groupId>
       <artifactId>example-model</artifactId>
-      <version>1.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis</artifactId>
     </dependency>
 
   </dependencies>
